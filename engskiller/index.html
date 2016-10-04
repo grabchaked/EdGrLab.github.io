@@ -1,0 +1,107 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>English Skiller</title>
+	<link rel="shortcut icon" href="abc.png" type="abc.png">
+
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+
+	<style>
+	*{padding:0; margin:0; }
+	h2{color:red;}
+	h4{padding:10px;}
+	*{padding:0; margin:0;}
+	button{width:150px; height:100px; text-align:center; }
+	h2{color:black; font-family: 'Lobster', cursive;}
+	p{font-size:20px; padding:15px; color:white; text-align:center;}
+	b{color:red; font-size:22px;}
+	.footer{ position: fixed; 
+    left: 0; bottom: 0; 
+    padding: 5px; 
+    background: #39b54a; 
+    color: #fff; 
+    width: 100%;
+    height:5%;
+    text-align:center;
+    text-indent:20px;}
+ 
+}
+	.unselectable {
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+     user-select: none;
+}
+	</style>
+</head>
+	<body onload="init()" style="background-color: #5077E2;">
+	<center>
+	<h2 align ='center'>English Skiller</h2>
+
+	
+	<br><br><br>
+	<h4 align="right" class="h4" id="record">Рекорд: </h4>
+	<select class="form-control input-lg" onchange="updateTopics()" id="level">
+
+		<option>--Виберіть рівень--</option>
+		<option>Початківець</option>
+		<option>Середній</option>
+		<option>Експерт</option>
+	</select>  <br>
+	<select class="form-control input-lg" id="topics" style="display:none;" onchange="updateTopics()">
+	<br>
+		<option>--Виберіть тему--</option>
+		<option>Родина</option>
+		<option>Дні/Місяці</option>
+		<option>Тварини</option>
+		<option>Кольора</option>
+		<option>Числа</option>
+		<option>Професії</option>
+		<option>Їжа</option>
+		<option>Одяг</option>
+		<option>Транспорт</option>
+		<option>Почуття</option>
+		<option>Тіло</option>
+		<option>Спорт</option>
+	</select>
+	<br>
+	
+	<h1 id="currentWord" onselectstart="return false" onmousedown="return false"></h1>
+	<!--   <input id ='text' style='display:none' onchange="checkWin()">-->
+	<input class="form-control input-lg" type="text" placeholder="Тут вводьте ваше слово і натискайте Еnter!" id ='text' onchange="check()" style='display:none'>
+	<div class="alert alert-success" style="display:none; background-color:white;" role="alert" id="greatAlert">До нового слова: <span id="timer"></span><br> <h3>Переклад слова: <strong><span id="translate"></span></strong></h3></div>
+	<button class="btn btn-danger" onclick ='start()' id='hide'>Почати!</button>
+	
+	<button style="display:none;">Закінчити</button></center>
+	
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Ви програли!</h4>
+		  </div>
+		  <div class="modal-body">
+			Рахунок: <span id='score'></span>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<br>
+	<div class="footer">© edgrlab.github.io</div>
+	<script src="jquery.js"></script>
+	<script src="db.js"></script>
+	<script src="game.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script>init()</script>
+	</body>
+</html>

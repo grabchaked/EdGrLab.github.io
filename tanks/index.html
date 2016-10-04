@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quad Strikers</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<style>
+	.footer {
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 300px;
+	background-color: #f5f5f5;
+	padding-top: 20px;
+     clear: both;
+    position: relative;
+    z-index: 10;
+    height: 4em;
+}
+
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+	</style>
+
+	<script>
+
+	const tw = 40, th = 40;
+
+   var  tank = {
+    	x:100,
+    	y:150,
+		width: 40,
+		height: 40,
+    	toright: true,
+		score: 0
+    };
+
+
+   var  pukan = {
+    	x:700,
+    	y:450,
+		width: 40,
+		height: 40,
+    	toright: false,
+		score: 0
+    };
+
+    var context;
+    var bullets = [];
+	
+	var tcd = 0;
+	var pcd = 0;
+	var max = 5;
+	var blood  = false;
+	var pl1 = "Red";
+	var  pl2 = "Green";
+	var bot = false;
+	var freeze = false;
+	var winner = 0;
+	var ts = 5;
+	var fscore = false;
+	
+	
+	
+	  function collision(objA, objB) { // from Habrahabr 
+        if (objA.x+objA.width  > objB.x && objA.x < objB.x+objB.width && objA.y+objA.height > objB.y && objA.y < objB.y+objB.height) {
+          return true;
+         }
+          else {
+              return false;
+           }
+     }
+	 
+	 function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function updateCooldowns() {
+
+
+	if (pcd > 0) {
+	pcd = pcd - 1;
+	}
+
+	if (tcd > 0) {
+	tcd = tcd - 1;
+	}
+
+	setTimeout(updateCooldowns, 1000);
+}
+	
+	
+    function bullet(x,y,team) {
+    		this.x = x;
+    		this.y = y;
+    		this.team = team;
+			this.width = 10;
+			this.height = 30;
+    		this.draw = function(){
+    				 context.fillStyle = "yellow";
+   					 context.fillRect(this.x,this.y,10,30);
+
+    		}
+    }
+
+
+
+	
+	function playSound( team) {
+  var audio = new Audio();  // РЎРѕР·РґР°С‘Рј РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ Audio
+  if (team == 0) {
+  audio.src = 'rwin.mp3';
+  }
+     if (team == 1) {
+  audio.src = 'gwin.wav';
+  }
+  
+       if (team == 2) {
+  audio.src = 'shot.wav';
+  }
+   
+  audio.autoplay = true; // РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРё Р·Р°РїСѓСЃРєР°РµРј
+	}
+
+function init() {
+    canvas = document.getElementById("main");
+    canvas.width = 800; 
+    canvas.height = 600; 
+    context = canvas.getContext('2d');
+   // window.addEventListener("mousemove",move,false);
+   	 window.addEventListener("keydown", checkInput, false );
+
+
+	updateCooldowns();
+
+	
+	max = prompt("Enter max score. Type not a number to play forever.",5);
+	pl1 = prompt("Enter first player name:","Red");
+		pl2 = prompt("Enter second player name: (Type BOT to fight with bot)","Green");
+		if (pl2.toLowerCase() == "bot") {
+				bot = true;
+				botNames = ["Bob","Dean","Steve","John","Mark"];
+				pl2 = botNames[getRandomInt(0,botNames.length)];
+		}
+		checkWin();
+	
+    draw();
+}
+
+
+
+
+
+function blink() {
+		blood = true;
+		
+		setTimeout(function() {blood = false;},100)
+}
+
+
+
+function updateBulls() {
+
+	for (i=0;i<bullets.length;i++) {
+		bullets[i].draw();
+	}
+
+		for (i=0;i<bullets.length;i++) {
+		if(bullets[i].team == 0) {
+			bullets[i].y = bullets[i].y + 70; 
+		}
+
+		if(bullets[i].team == 1) {
+			bullets[i].y = bullets[i].y - 70; 
+		}	
+		
+		if (bullets[i].y > 700) {
+				bullets.splice(i,1);
+		}
+	}
+}
+
+function checkWin() {
+	if (freeze) {
+	return;
+	}
+
+	for (i=0;i<bullets.length;i++) {
+		if (collision(tank, bullets[i])) {
+				if (bullets[i].team == 1) {
+								bullets[i].x = 820;
+					pukan.score = pukan.score + 1; // РЈРІРµР»РёС‡РёРІР°РµРј РѕС‡РєРѕ
+					blink();
+					if (pukan.score == max) {
+					//playSound(1);
+					//setTimeout(function(){alert(pl2+" wins! Press OK to play again!");},500);
+					stopGame(0);
+				}
+				}
+			}
+			
+			if (collision(pukan, bullets[i])) {
+				if (bullets[i].team == 0) {
+				bullets[i].x = 820;
+				tank.score = tank.score + 1; // РЈРІРµР»РёС‡РёРІР°РµРј РѕС‡РєРѕ
+				blink();
+				if (tank.score == max) {
+					//playSound(0);
+					//setTimeout(function(){alert(pl1+" wins! Refresh page to play again!");	location.reload();},500);
+			stopGame(1);
+				}
+			}
+	}
+}
+
+}
+
+
+function stopGame( w) {
+	freeze = true;
+	blink();
+	blink();
+	blink();
+	blink();
+	pukan.x = tank.x;
+	tank.toright = true;
+	pukan.toright = true;
+	ts = 15;
+	setTimeout(function() {fscore = true;},2000);
+	
+	setTimeout(function(){playSound(winner)},1000);
+	
+	winner = w;
+}
+
+function botLogics() {	
+
+if (getRandomInt(0,10) < 4) {
+	pukan.toright = !pukan.toright;
+}
+
+					
+					if (pcd == 0) {
+					bullets.push(new bullet(pukan.x+17, pukan.y-10, 1 ));
+			pcd = 1;
+						playSound(2);
+						return;
+			}	
+	
+}
+
+
+
+
+function logic() {
+
+
+	if (tank.toright) {
+		tank.x = tank.x + ts;
+	} else {
+		tank.x = tank.x - ts;
+	}
+
+		if (pukan.toright) {
+		pukan.x = pukan.x + ts;
+	} else {
+		pukan.x = pukan.x - ts;
+	}
+
+
+	if (tank.x > 799) {
+		tank.x = 1;
+	}
+
+	if (tank.x < -2) {
+		tank.x = 799;
+	}
+
+		if (pukan.x > 799) {
+		pukan.x = 1;
+	}
+
+	if (pukan.x < -2) {
+		pukan.x = 799;
+	}
+	
+	if (freeze) {
+			if (tank.x > 700) {
+				tank.x = 700;
+			}
+			
+			if (pukan.x > 700) {
+				pukan.x = 700;
+			}
+	}
+
+
+	
+	checkWin();
+	updateBulls();
+}
+
+function draw() {
+
+context.clearRect(0, 0, canvas.width, canvas.height);
+	if (blood) {
+
+    context.fillStyle = "red";
+	} else {
+	    context.fillStyle = "black";
+	
+	}
+
+    context.fillRect(0,0,800,600);
+
+
+    context.fillStyle = "red";
+	context.fillRect(tank.x,tank.y,tw,th);
+	context.fillRect(tank.x+10,tank.y+40,20,10);
+					 
+					 
+      context.fillStyle = "green";
+    context.fillRect(pukan.x,pukan.y,tw,th);
+	context.fillRect(pukan.x+10,pukan.y-10,20,10);
+	
+	
+	context.strokeStyle = "white";
+	  context.beginPath();
+
+      context.moveTo(0, 300);
+      context.lineTo(800, 300);
+      context.stroke();
+	  
+ if (!freeze) { 
+	 context.fillStyle = "white";
+    context.strokeStyle = "black";
+    context.font = "italic 15pt Arial";
+	if (tcd > 0 ) {
+    context.fillText("Reloading...", 20, 40);	
+	}
+		if (pcd > 0 ) {
+    context.fillText("Reloading...", 20, 340);	
+	}
+
+	context.fillText("Score: "+tank.score, 700, 40);	
+	context.fillText("Score: "+pukan.score, 700, 340);	
+	
+	
+
+	
+	context.fillText(pl1, 690, 275);	
+
+	context.fillText(pl2, 690, 575);	
+
+}
+
+	if (winner == 0 && freeze && tank.x == 700) {
+		 context.fillStyle = "white";
+	  context.font = "bold 40pt Arial";
+		context.fillText("LOSER",50,180);	
+		context.fillText("WINNER",50,480);	
+		context.fillText(tank.score, 325, 185);	
+		context.fillText(pukan.score, 325, 485);	
+
+	} 
+	
+	if (winner == 1 && freeze && tank.x == 700) {
+		 context.fillStyle = "white";
+		 context.font = "bold 40pt Arial";
+		context.fillText("WINNER",50,185);	
+		context.fillText("LOSER",50,485);	
+		context.fillText(tank.score, 325, 185);	
+		context.fillText(pukan.score, 325, 485);	
+
+	}
+	
+
+
+
+	
+	
+	
+      logic();
+	setTimeout(draw, 40);
+}
+
+
+function checkInput(e) {
+	if (e.keyCode == 81 && !freeze) {
+			tank.toright = !tank.toright;
+			if (bot) {
+			//	setTimeout(function() {pukan.toright = !pukan.toright},300)
+			}
+	}
+	
+		if (e.keyCode == 80 && !bot && !freeze) {
+			pukan.toright = !pukan.toright;
+	}
+
+			if (e.keyCode == 65) {
+			if (tcd == 0) {
+			bullets.push(new bullet(tank.x+17, tank.y+40, 0));
+			tcd = 1;
+			playSound(2);
+			if (bot) {
+					setTimeout(botLogics,40);
+			}
+			}
+	}
+
+		if (e.keyCode == 76 && !bot) {
+		
+			if (pcd == 0) {
+					bullets.push(new bullet(pukan.x+17, pukan.y-10, 1 ));
+			pcd = 1;
+						playSound(2);
+			}
+	
+	}
+	
+	
+	
+
+	if (e.keyCode == 27) {
+		alert("PAUSED. Click OK to continue");
+	}
+}
+
+
+function showHelp() {
+	alert("Red player controls: \n - Q to change direction \n - A to shoot \n \nGreen player controls: \n - P to change direction \n -A to shoot");
+}
+
+	</script>
+</head>
+<body onload="init()">
+<h2 align="center">Quad Strikers <a class="btn btn-link" onclick="showHelp();">How to play</a></h2>
+<center><canvas id="main">Your down browser does not support canvas.</canvas>
+<p>Game was written by my friend Nikita Kohut</p>
+</center>
+		 
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<title>Gifster</title>
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+/*{background-color: #50AC35;}*/
+	img.pics{
+		border-radius: 50px;
+		border: 2px solid lightgreen;
+		width: 200px;height: 250px;
+		display: block; margin: auto;
+	}
+ p{text-align: center;}
+	h1{font-size: 50px;}
+	p{font-size: 15px;}
+  .logo{display: block; margin: auto;}
+	table{margin: 5px; text-align: center;}
+	#footer{bottom: 0; text-align: center; left: 0; width: 100%;}
+a{font-size: 18px;}
+  a.up{font-size: 40px;   float: right; padding-right: 30px; text-decoration: none; padding-bottom:30px; transition: 1s; }
+  a.up:hover{color: red;}
+  a.down{font-size: 40px; padding-left: 30px; text-decoration: none;}
+  a.down:hover{color:red;}
+</style>
+	 
+</head>
+
+
+<body>
+<audio autoplay>
+  <source src="music.mp3">
+</audio>
+ 
+  <a name="up" class="up"> </a>
+ <br>
+ <img src="bg.png" class="logo">
+<!--<h1 align="center"><em>Gifster</em></h1>-->
+<p>анімований фотоальбом</p>
+ 
+<a href='#down' class="down">↓</a>
+<div class="container">
+<br> 
+ 
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Ім'я та прізвище</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      
+      <tr>
+        <td><a href='javascript: changePerson(1)'>Катя Яцків</a></td>
+      </tr>
+      <tr>
+        <td><a href='javascript: changePerson(2)'>Діана Кропіна</a></td>
+      </tr>
+       <tr>
+        <td><a href='javascript: changePerson(3)'>Андрій Кишкан</a></td>
+        </tr>
+      <tr>
+        <td><a href='javascript: changePerson(4)'>Бодя Василиха</a></td>
+      </tr>
+      <tr>
+        <td><a href='javascript: changePerson(5)'>Анна Штіль</a></td>
+      </tr>
+      <tr>
+        <td>
+        <a href='javascript: changePerson(6);'>Едік Грабчак</a>  
+      </td>
+        </tr>
+       <tr>
+        <td><a href='javascript: changePerson(7)'>Яна Фенчак</a></td>
+        </tr>
+      <tr>
+        <td><a href='javascript: changePerson(8)'>Беата Поляк</a></td>
+      </tr>
+      <tr>
+        <td><a href='javascript: changePerson(9)'>Анна Сакал</a></td>
+      </tr>
+       <tr>
+        <td><a href='javascript: changePerson(10)'>Наталя Кочерган</a></td>
+        </tr>
+      <tr>
+        <td><a href='javascript: changePerson(11)'>Анна Грись</a></td>
+      </tr>
+       <tr>
+        <td><a href='javascript: changePerson(12)'>Петро Шек</a></td>
+      </tr> 
+       <tr>
+        <td><a href='javascript: changePerson(13)'>Едік Андрійчук</a></td>
+      </tr> 
+       <tr>
+        <td><a href='javascript: changePerson(14)'>Юля Лаба</a></td>
+      </tr> 
+       <tr>
+        <td><a href='javascript: changePerson(15)'>Ігор Пулим</a></td>
+      </tr> 
+       <tr>
+        <td><a href='javascript: changePerson(16)'>Андрій Конфуцій</a></td>
+      </tr> 
+        <tr>
+        <td><a href='javascript: changePerson(17)'>Толя Тотін</a></td>
+      </tr> 
+        <tr>
+        <td><a href='javascript: changePerson(18)'>Марта Мартинович</a></td>
+      </tr> 
+      <tr>
+        <td><a href='javascript: changePerson(19)'>Анна Ребрик</a></td>
+      </tr>
+      <tr>
+        <td><a href='javascript: changePerson(20)'>Настя Феоктістова</a></td>
+      </tr>
+      <tr>
+        <td><a href='javascript: changePerson(21)'>Женя Гала</a></td>
+      </tr>
+    </tbody>
+  </table>
+ 
+  <!--<a name="down"> </a>-->
+<img src="igor\1.jpg" id='frame' class="pics">
+ <a href='#up' class="up">↑</a>
+  
+
+ <a name="down" class="down"></a>
+<br>
+
+</div>
+ 
+<br>
+ 
+<p id='footer'>Created with &#9829; E. Grabchak & P. Shek </p>
+<p>Copyright gifster 2016 | <a href='https://edgrlab.github.io'>edgrlab.github.io</a></p>
+
+ 
+<script src="app.js"></script>
+
+</body>
+</html>

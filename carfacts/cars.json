@@ -1,0 +1,60 @@
+var carsData = [
+		{
+			type: "Koenigsegg Trevita",
+			image_url: "http://icdn2.digitaltrends.com/image/4-8-million-koenigsegg-ccxr-trevita-970x647-c.jpg",
+			price: "$4.8 million",
+			speed: "420 km/h",
+			description: "The Koenigsegg CCX is a mid-engined sports car built by Koenigsegg Automotive AB. The project began with the aim of making a global car, designed and engineered to comply with global safety and environment regulations, particularly to enter the United States car market. To sell cars in the US many alterations were made to the design of the CCR; the previously used Ford Modular engine was replaced by a Koenigsegg engine designed to run on 91 octane fuel, readily available in the United States, and to meet the Californian emission standards."
+		},
+		{
+			type: "Lamborghini Venero",
+			image_url: "http://icdn3.digitaltrends.com/image/4-5-million-lamborghini-veneno-970x647-c.jpg",
+			price: "$4.5 million",
+			speed: " 350 km/h",
+			description: "The Lamborghini Veneno is a limited production supercar based on the Lamborghini Aventador and was built to celebrate Lamborghini’s 50th anniversary. When introduced in 2013 at a price of US$4,500,000, it was the most expensive production car in the world. The prototype, Car Zero, is finished in grey and includes an Italian flag vinyl on both sides of the car. The engine is a development of the Aventador's 6.5 L V12 and produces 750 PS."
+		},
+		{
+			type: "Ferrari Pininfarina Sergio",
+			image_url: "http://icdn1.digitaltrends.com/image/02-14-720x480-c.jpg",
+			price: "$3 million",
+			speed: "390 km/h",
+			description: "Crafted by legendary Italian design house Pininfarina, the Sergio is essentially a Ferrari 458 Spider with a completely new body and interior. That means a 4.5-liter V8 sends a whopping 562 hp to the rear wheels, but because the Sergio is lighter than the 458, it’s quicker and handles better as well. The new body doesn’t just save weight though, it’s chock-full of interesting details like aerodynamic headrests that are built directly into the roll cage."
+		},
+		{
+			type: "Pagani Huayra BC",
+			image_url: "http://icdn7.digitaltrends.com/image/2-6-million-pagani-huayra-bc_0014-720x480-c.jpg",
+			price: "$2.6 million",
+			speed: "420 km/h",
+			description: "The Huayra uses a twin-turbo, V12 engine developed by Mercedes-AMG specially for the Huayra. The Huayra's 6.0-litre engine, the M158, produces 730 metric horsepower (720 bhp (539 kW)) and 811 lb·ft (1,100 N·m) of torque. Its top speed is about 238 mph (383 km/h) and it has a rating 0–62 miles per hour (0–100 km/h) acceleration time of 2.8 seconds."
+		},
+		
+		{
+			type: "Bugatti Chiron",
+			image_url: "http://icdn1.digitaltrends.com/image/2-5-million-bugatti-chiron_009-720x480-c.jpg",
+			price: "$2.5 million",
+			speed: "400 km/h",
+			description: "The supercar’s monstrous specs are made possible by its reworked quad-turbocharged 8.0-liter W16, which now produces 1,500 hp and a monstrous 1,180 lb-ft. 60 mph is dealt with in a rather quick 2.5 seconds on the way to the Chiron’s top speed, which is limited to 261 mph."
+		
+		},
+		{
+			type: "Aston Martin One-77",
+			image_url: "http://icdn4.digitaltrends.com/image/1-4-million-aston-martin-one-77_002-720x480-c.jpg",
+			price: "$1.4 million",
+			speed: "355 km/h",
+			description: "The supercar’s monstrous specs are made possible by its reworked quad-turbocharged 8.0-liter W16, which now produces 1,500 hp and a monstrous 1,180 lb-ft. 60 mph is dealt with in a rather quick 2.5 seconds on the way to the Chiron’s top speed, which is limited to 261 mph."
+		},
+		{
+			type: "W Motors Lykan Hypersport",
+			image_url: "http://icdn1.digitaltrends.com/image/3-4-million-w-motors-lykan-hypersport_0012-720x480-c.jpg",
+			price: "$3.4 million",
+			speed: "395 km/h",
+			description: "The Lykan Hypersport is a Lebanese limited production hypercar by W Motors, a United Arab Emirates based company, founded in 2012 in Lebanon with the collaboration of Lebanese, French and Italian engineers. It is the first supercar to be produced in the Middle East, and is featured in the film Furious 7, and the video games Project CARS, Driveclub, Asphalt 8: Airborne, Asphalt Nitro, Forza Motorsport 6, and GT Racing 2: The Real Car Experience CSR Racing 2. It is the first car to be designed and produced indigenously in the Arab World."
+		},
+		{
+			type: "LaFerrari FXX K",
+			image_url: "http://icdn7.digitaltrends.com/image/1400443_car-ferrari-fxxk-720x480-c.jpg",
+			price: "$2.7 million",
+			speed: "360 km/h",
+			description: "The Ferrari FXX-K is a high performance limited production track-only race car built by automobile manufacturer Ferrari in Maranello, Italy and designed by architect Flavio Manzoni director of Centro Stile Ferrari. The FXX-K is based on the street-legal LaFerrari."
+		}
+	]	

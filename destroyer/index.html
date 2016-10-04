@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+		Destroyer
+	</title>
+<style type="text/css">canvas{margin-top: 2%; } button{width: 100px; height: 80px; font-size: 20px;}
+ .wrapper {text-align: center;}
+}</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle(300);
+    });
+});
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $(this).hide();
+    });
+});
+</script>
+
+<style> 
+#panel, #flip {
+    padding: 3px;
+    color: white;
+    text-align: center;
+    background-color: grey;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding: 12px;
+    display: none;
+}
+.unselectable {
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+     user-select: none;
+}
+
+</style>
+
+</head>
+<body> <center><pre style="font-size:20px;" class="unselectable">Destroyer</pre>
+<div id="flip" class='unselectable'>Click to know how to play</div>
+<div id="panel">Use mouse to moving a player, avoid the enemies. Press Esc for pause.</div>
+<canvas id ='main' style='padding:10px;'></canvas>
+</center>
+<div class="wrapper">
+    <button onclick="main()">Start</button>
+</div>
+<script type="text/javascript">
+	var canvas, ctx;
+	var bullets = [];
+	var enemies = [];
+	var bspeed = 30;
+	var score = 0;
+	var player = new rect('green',300,200,20,20);
+
+	const ENEMY_WIDTH = 20;
+	const ENEMY_HEIGHT = 20;
+	var  ENEMY_SPEED = 5;
+	
+
+
+	function rect(color,x,y,width,height){
+		this.color = color;
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+		this.draw = function(){ctx.fillStyle = this.color; ctx.fillRect(this.x,this.y,this.width,this.height); }
+	}
+
+	
+	function makeEnemies() {
+			enemies.push(new rect('orange', Math.floor(Math.random()*650), 50, ENEMY_WIDTH, ENEMY_HEIGHT));
+	} 
+	
+	function collision(objA, objB) { // from Habrahabr 
+        if (objA.x+objA.width  > objB.x && objA.x < objB.x+objB.width && objA.y+objA.height > objB.y && objA.y < objB.y+objB.height) {
+          return true;
+         }
+          else {
+              return false;
+           }
+     }
+	
+	function logic () {
+		for(i=0;i<enemies.length;i++){
+if (collision(player,enemies[i])) {
+		alert('lol, you died, your score is '+score);
+
+		location.reload();
+								}
+	}
+	checkEnemyDeath();
+}
+	function checkEnemyDeath() {
+	for (a=0;a<enemies.length;a++) {
+	for (b=0;b<bullets.length;b++) {
+		if (collision(enemies[a],bullets[b])) {
+			score++;
+			enemies.splice(a,1);
+			bullets.splice(b,1);
+		}
+	}
+	}
+		bullets.push(new rect('red',player.x+3, player.y+20, 5,8));
+		bullets.push(new rect('red',player.x+12, player.y+20, 5,8));
+	
+
+
+
+	//for (c=0;c<enemies.length;c++) {
+	if(score==5)ENEMY_SPEED=7;
+	if(score==12)ENEMY_SPEED=10;
+	if(score==20)ENEMY_SPEED=15;
+	if(score==33)ENEMY_SPEED=20;
+	if(score>=35)ENEMY_SPEED=25;
+	
+}
+	function main () {
+		canvas = document.getElementById('main');
+		canvas.width = 650;
+		canvas.height = 400;
+		ctx = canvas.getContext("2d");
+		canvas.addEventListener("mousemove",move,false);
+	//	window.onclick = function() {fire()};
+		window.addEventListener("keydown",skills,false);
+		setInterval(makeEnemies, 100);
+		setInterval(draw,40);
+		//setInterval(enemyShoot,1000);
+
+	}
+
+	
+
+	function move(e) {
+			player.y = e.pageY-155;
+			player.x = e.pageX-325;
+	}
+
+
+
+function skills(e) {
+
+if (e.keyCode == 27) {
+    	alert("Press OK to continue");
+    
+	}
+}
+
+
+	function draw(){
+		ctx.fillStyle = 'black';
+		ctx.fillRect(0,0,650,400);
+
+		for (i = 0; i<bullets.length; i++ ) {
+				bullets[i].y = bullets[i].y - bspeed;
+						bullets[i].draw();
+		}
+
+		ctx.fillStyle = "white";
+    ctx.strokeStyle = "black";
+    ctx.font = "italic 10pt Arial";
+    ctx.fillText('Game created by Eduard Grabchak', 420, 380); 
+    ctx.fillText('Score: '+score, 30, 30); 
+
+
+	/*	
+		for (i =0; i<enemyBullets.length;i++) {
+			enemyBullets[i].y += bspeed;
+			enemyBullets[i].draw();
+		}
+*/
+		for (i = 0; i<enemies.length; i++ ) {
+				enemies[i].y += ENEMY_SPEED;
+
+				enemies[i].draw();
+		}
+		/*for (i=0;i<enemies.length;i++) {
+				if (enemies[i].y>400) {
+					score++;
+					delete enemies;
+				}
+		}*/
+
+ player.draw();
+ logic();
+}
+
+</script>
+<br>
+<p align="center"><a href='http://edgrlab.github.io'>EdGrLab</p>
+</body>
+</html>

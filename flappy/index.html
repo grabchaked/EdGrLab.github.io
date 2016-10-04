@@ -1,0 +1,177 @@
+
+<html>
+<head>
+<title>Cactus Hell</title>
+
+<style>
+
+
+</style>
+<script>
+var canvas, ctx, pl;
+var cactuses = [];
+var cspeed = 5;
+
+var score = 0;
+const plh = 60;
+var gameModeForPlayingUsingIngameDrawFunctionCheckingThePoistionOfPlayer = false;
+var end= false;
+
+
+
+
+	   function collision(objA, objB) { // from Habrahabr 
+        if (objA.x+objA.width  > objB.x && objA.x < objB.x+objB.width && objA.y+objA.height > objB.y && objA.y < objB.y+objB.height) {
+          return true;
+         }
+          else {
+              return false;
+           }
+     }
+	
+		function getRandom(min,max) {
+		var rand = min - 0.5 + Math.random()*(max-min+1);
+		rand = Math.round(rand);
+		
+		return rand;
+	}	
+
+   function cactus( x, y, height) { 
+        this.x = x;
+        this.y = y;
+        this.height = height;
+        this.width = 50;
+        this.draw = function() 
+        {
+            ctx.fillStyle = "green";
+            ctx.fillRect(this.x, this.y, 150, this.height);
+        }
+    }
+
+var player = {
+x: 100,
+y: 310,
+width: 40,
+height: 40,
+draw: function() {
+		ctx.fillStyle = "black";
+		ctx.fillRect(this.x, this.y, 40,40);
+}
+
+}
+
+
+function init() {
+canvas = document.getElementById("main");
+canvas.width = 800;
+canvas.height = 620;
+ctx = canvas.getContext("2d");
+if (confirm("Do you want to play Hard mode?")) {
+	gameModeForPlayingUsingIngameDrawFunctionCheckingThePoistionOfPlayer = true;
+}
+canvas.addEventListener("mousemove",move,false);
+generateEnemies();
+
+	draw();
+}
+
+
+
+
+function no() {
+	if (player.y > 580) {
+		player.y = 580;
+	}
+
+	if (player.y < -10) {
+		player.y = -10;
+	}
+
+	for (var i=0;i<cactuses.length;i++) {
+		if(cactuses[i].x < 5) {
+			cactuses.splice(i,1);
+		}
+
+	}
+}
+
+function move(e) {
+		player.y = e.pageY;
+
+}
+
+
+
+
+function generateEnemies() {
+	t = getRandom(50,285);
+	cactuses.push(new cactus(1000, 0 , t));
+	tpl = getRandom(45,100);
+	cactuses.push(new cactus(1000, t+tpl, 620-(t+tpl)));
+
+	if (gameModeForPlayingUsingIngameDrawFunctionCheckingThePoistionOfPlayer) {
+
+		setTimeout(generateEnemies, 1200);
+	} else {
+		setTimeout(generateEnemies, 1500);
+	}
+	
+} 
+
+function count() {
+	for (i=0;i<cactuses.length;i++) {
+		if(cactuses[i].x == player.x) {
+			score++;
+		}
+	}
+}
+
+
+function moveCac() {
+
+	for (i=0;i<cactuses.length;i++) {
+		cactuses[i].draw();
+		cactuses[i].x = cactuses[i].x - 10;
+		if (collision(player, cactuses[i]) ) {
+			end = true;
+				alert("Game over! Score: "+score/2);
+				location.reload();
+		}
+	}
+}
+
+function draw() {
+		ctx.fillStyle = "#75A0F0";
+		ctx.fillRect(0,0,canvas.width, canvas.height);
+		no();
+		player.draw();
+		moveCac();
+		count();
+		
+
+	ctx.fillStyle = "black";
+    ctx.strokeStyle = "black";
+    ctx.font = "italic 15pt Arial";
+    ctx.fillText("Score: "+score/2, 20, 90);	
+
+
+ctx.fillStyle = "white";
+    ctx.strokeStyle = "black";
+    ctx.font = "italic 20px Arial";
+    ctx.fillText('Game created by Eduard Grabchak', 400, 600); 
+
+
+		
+		
+		setTimeout(draw, 40);
+}
+
+
+</script>
+</head>
+<body onload="init()">
+<canvas id="main">no canvas support</canvas>
+
+
+</body>
+</html>

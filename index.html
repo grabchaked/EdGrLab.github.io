@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <meta name="description" content=" EdGrLab - js games & programs">
+    <meta name="keywords" content="edgrlab games, edgrlab.github.io">
+    <meta name="author" content="Eduard Grabchak">
+    <link rel="shortcut icon" href='title.PNG' type="PNG">
+    <title>EdGrLab</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/2-col-portfolio.css" rel="stylesheet">
+
+   <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+   <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+ <script type="text/javascript">
+    VK.init({
+        apiId: 5244376,
+        onlyWidgets: true
+    });
+    </script>
+
+   <style type="text/css">
+   h3{text-align: center;}
+   img{border: 1px dashed black;}
+   img:hover{opacity: 0.5; border: 1px solid black}
+       h1{font-family: 'Righteous', cursive; font-size: 60px; text-align: center;}
+       #vk_like {
+        margin: auto;
+    }
+    
+   </style>
+</head>
+
+<body>
+
+  
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">EdGrLab
+                  
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-6 portfolio-item">
+            <h3>
+                    <a href="engskiller/">English Skiller</a>
+                </h3>
+                <p>Program where you improve your typing skills and also learn new words.</p>
+                 
+                    <img class="img-responsive" src="engskiller/engskiller.PNG" width="700" height="650">
+                 
+                 
+            </div>
+            <div class="col-md-6 portfolio-item">
+            <h3>
+                    <a href="encryptor/">Encryptor</a>
+                </h3>
+                <p>Program can encrypt and decrypt your message.</p>
+                
+                    <img class="img-responsive" src="encryptor/encryptor.PNG" width="700" height="650">
+                
+                 
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-6 portfolio-item">
+             <h3>
+                    <a href="clicker/">Clicker</a>
+                </h3>
+                <p>Just click to stay alive as long as you can (my first javascript game).</p>
+                
+                    <img class="img-responsive" src="clicker/clicker.PNG" width="700" height="650">
+                
+                
+            </div>
+            <div class="col-md-6 portfolio-item">
+             <h3>
+                    <a href="flappy/">Flappy Cube</a>
+                </h3>
+                <p>Game looks like flappy bird, but you control by using mouse.</p>
+                 
+                    <img class="img-responsive" src="flappy/flappy.png" width="700" height="650">
+                 
+                
+            </div>
+        </div>
+        <!-- /.row -->
+
+        
+        <div class="row">
+            <div class="col-md-6 portfolio-item">
+            <h3>
+                    <a href="tanks/">Tanks</a>
+                </h3>
+                <p>Game for 2 players, works only on computers.</p>
+                 
+                    <img class="img-responsive" src="tanks/tanks.PNG" width="700" height="650">
+                 
+                 
+            </div>
+            <div class="col-md-6 portfolio-item">
+            <h3>
+                    <a href="https://chatlab.herokuapp.com/">Chat</a>
+                </h3>
+                <p>Real-time chat.</p>
+                 
+                    <img class="img-responsive" src="chat.png" width="700" height="650">
+                
+                 
+            </div>
+
+            <div class="col-md-6 portfolio-item"> 
+<h3> 
+<a href="carfacts/">Car Facts</a> 
+</h3> 
+<p>Facts about best cars in the world.</p> 
+
+<img class="img-responsive" src="carfacts/cars.jpg" width="700" height="650"> 
+
+
+</div>
+
+   <div class="col-md-6 portfolio-item"> 
+<h3> 
+<a href="template/">Company template</a> 
+</h3> 
+<p>Just a template for company.</p> 
+
+<img class="img-responsive" src="template/temp.png" width="700" height="650"> 
+
+
+</div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+ 
+       <a id="up" style="cursor:pointer">Go up</a>
+        <script>
+        function up() {
+            window.scrollBy(0, -100);
+            if (window.pageYOffset > 0) {
+                requestAnimationFrame(up);
+            }
+        }
+        document.getElementById('up').addEventListener('click', function(e) {
+            e.preventDefault();
+            up();
+        }, false);
+        </script>
+
+       
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+
+      <div id="vk_like"></div>
+        <script type="text/javascript">
+        VK.Widgets.Like("vk_like", {
+            type: "button"
+        });
+        </script>
+
+                <p align="center"><a href='me/'>About author</a></p>
+                <br>
+                    <p align="center">Copyright &copy; edgrlab.github.io 2015-2016</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+
+    <!-- /.container -->
+
+    
+     
+
+</body>
+
+</html>

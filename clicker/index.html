@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+	<title>CLICKER - try you exerpt!</title>
+  <style type="text/css">
+h2 {color:purple; text-align: center;}
+p{text-align: center;}
+  </style>
+</head>
+
+<script>
+//variables
+var context;
+var pl = new rect("red",400,500,20,20);
+var bullets = [];
+var bspeed = 15;
+var quantityShot = 0;
+var enemy = new rect ("blue",0,0,800,100);
+var plname;
+var level = 35;
+var l = 1; 
+var end = false;
+var doublegun = false;
+//work with objects
+ function collision(objA, objB) { // from Habrahabr 
+        if (objA.x+objA.width  > objB.x && objA.x < objB.x+objB.width && objA.y+objA.height > objB.y && objA.y < objB.y+objB.height) {
+          return true;
+         }
+          else {
+              return false;
+           }
+     }
+	
+
+
+//Class draw rectangle
+    function rect(color, x, y, width, height) {
+        this.color = color; 
+        this.x = x;
+        this.y = y;
+        this.width = width; 
+        this.height = height; 
+        this.draw = function() 
+        {
+            context.fillStyle = this.color;
+            context.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    //main 
+function init(){
+
+    canvas = document.getElementById("main");
+    canvas.width = 800; 
+    canvas.height = 600; 
+    context = canvas.getContext('2d');
+          window.onclick = function() {fire()};
+ draw(); 
+ enemy.hp = 10;
+
+ plname = prompt('Welcome to Clicker!  Enter your name: ');
+ //check press eky
+  window.addEventListener("keydown", skills, false );
+ 
+}
+
+
+
+function draw (){
+
+context.fillStyle = "black";
+context.fillRect(0,0,800,600);
+pl.draw();
+
+for (i = 0; i<bullets.length; i++ ) {
+bullets[i].draw();
+}
+
+moveBullets();
+
+enemy.y = enemy.y + ((level / 2) / 100 * 3);
+
+enemy.draw();
+logic();
+
+	context.fillStyle = "white";
+    context.strokeStyle = "black";
+    context.font = "italic 15pt Arial";
+    context.fillText('Clicks made: '+quantityShot, 20, 50);	
+
+context.fillText('Esc - pause', 20, 550);    
+
+context.fillStyle = "white";
+    context.strokeStyle = "black";
+    context.font = "italic 10pt Arial";
+    context.fillText('Game created by Eduard Grabchak', 580, 580); 
+
+setTimeout(draw,40);
+}
+function skills(e) {
+
+if (e.keyCode == 27) {
+    	alert("Press OK to continue");
+	}
+    if (e.keyCode == 32) {
+        bullets.push(new rect('yellow',pl.x+6, pl.y+5, 5,8));
+ 	quantityShot++;}
+     
+  /*   {
+for (i = 0; i<bullets.length; i++ ) {
+bullets[i].y = bullets[i].y - bspeed;}
+  */   
+     
+}
+
+
+function fire(){
+  if (doublegun){
+  		bullets.push(new rect('yellow',pl.x+1, pl.y+5, 5,8));
+  			bullets.push(new rect('yellow',pl.x+13, pl.y+5, 5,8));
+
+  }
+  else{
+  		bullets.push(new rect('yellow',pl.x+6, pl.y+5, 5,8));
+  }
+ 	quantityShot++;
+
+
+}
+
+function moveBullets(){
+for (i = 0; i<bullets.length; i++ ) {
+bullets[i].y = bullets[i].y - bspeed;}
+}
+
+function logic () {
+	if (collision(pl,enemy) && !end) {
+        end = true;
+		alert(plname+" Рахунок: "+quantityShot);
+		location.reload();
+        
+	}
+
+for (i = 0; i<bullets.length; i++ ) {
+if (collision(bullets[i],enemy)) {
+		enemy.hp --;
+		bullets.splice(i, 1);
+		if(enemy.hp < 1) {
+		alert('Level: '+l+' completed');
+		l++;
+		if(l == 5 ){doublegun =true}
+		level = level + 5;
+		enemy.hp = level + (level / 4);
+		enemy.x = 0;
+		enemy.y = 0;
+		}
+	}
+
+}
+
+}
+
+</script>
+<body onload="init()">
+<h2>CLICKER - try you exerpt!</h2>
+<center><canvas id ='main'>Download new version of Google Chrome!</canvas></center>
+</body>
+</html>

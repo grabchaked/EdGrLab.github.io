@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" src='encrypt.png'>
+    <title>Encryptor</title>
+    <style type="text/css">
+    textarea {
+        font-size: 20px;
+        max-width: 100%;
+    }
+    h3{text-align: center;}
+   body{background-color: orange}
+   footer{text-align: center;}
+    </style>
+</head>
+
+<body>
+    <center>
+        <h3 align="center">Encryptor - encrypt your text</h3>
+        <p>Choose mode:
+            <input type="radio" id='backward' name="optradio">backward
+            <input type="radio" id='encrypt' name="optradio">encrypt</p>
+        <textarea cols="50" rows="12" id='text' placeholder='Here type your text or just paste it'></textarea>
+        <br>
+        <button onclick="start()" id='go' class="btn btn-success">Get changed text!</button>
+    </center>
+    <h3 id='code'> </h3>
+    <hr>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    var keys = [{
+        en: "q",
+        ua: "й"
+    }, {
+        en: "w",
+        ua: "ц"
+    }, {
+        en: "e",
+        ua: "у"
+    }, {
+        en: "r",
+        ua: "к"
+    }, {
+        en: "t",
+        ua: "е"
+    }, {
+        en: "y",
+        ua: "н"
+    }, {
+        en: "u",
+        ua: "г"
+    }, {
+        en: "i",
+        ua: "ш"
+    }, {
+        en: "o",
+        ua: "щ"
+    }, {
+        en: "p",
+        ua: "з"
+    }, {
+        en: "[",
+        ua: "х"
+    }, {
+        en: "]",
+        ua: "ї"
+    }, {
+        en: "a",
+        ua: "ф"
+    }, {
+        en: "s",
+        ua: "і"
+    }, {
+        en: "d",
+        ua: "в"
+    }, {
+        en: "f",
+        ua: "а"
+    }, {
+        en: "g",
+        ua: "п"
+    }, {
+        en: "h",
+        ua: "р"
+    }, {
+        en: "j",
+        ua: "о"
+    }, {
+        en: "k",
+        ua: "л"
+    }, {
+        en: "l",
+        ua: "д"
+    }, {
+        en: ";",
+        ua: "ж"
+    }, {
+        en: "'",
+        ua: "є"
+    }, {
+        en: "z",
+        ua: "я"
+    }, {
+        en: "x",
+        ua: "ч"
+    }, {
+        en: "c",
+        ua: "с"
+    }, {
+        en: "v",
+        ua: "м"
+    }, {
+        en: "b",
+        ua: "и"
+    }, {
+        en: "n",
+        ua: "т"
+    }, {
+        en: "m",
+        ua: "ь"
+    }, {
+        en: ",",
+        ua: "б"
+    }, {
+        en: ".",
+        ua: "ю"
+    }, {
+        en: " ",
+        ua: " "
+    }, {
+        en: '?',
+        ua: "?"
+    }];
+
+    function start() {
+        if (document.getElementById("backward").checked) {
+            encodeBackward();
+        } else {
+            encode();
+        }
+
+    }
+
+
+    function encode() {
+        var str = document.getElementById("text").value;
+
+        var res = "";
+
+        for (var i = 0; i < str.length; i++) {
+            for (var j = 0; j < keys.length; j++) {
+                if (str[i] == keys[j].ua) {
+                    res = res + keys[j].en;
+                }
+                if (str[i] == keys[j].en) {
+                    res = res + keys[j].ua;
+                }
+            }
+        }
+        document.getElementById("code").innerHTML = res;
+
+    }
+
+    function encodeBackward() {
+        var val = document.getElementById('text').value;
+        code = '';
+        for (i = val.length - 1; i >= 0; i--) {
+            code = code + val[i];
+        }
+        document.getElementById('code').innerHTML = code;
+        document.getElementById('res').innerHTML = res;
+    }
+    </script>
+    <br>
+    <footer><em><a href='http://edgrlab.github.io/'>edgrlab.github.io</a></em></footer>
+</body>
+
+</html>

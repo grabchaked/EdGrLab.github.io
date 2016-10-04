@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="carFacts">
+<head>
+<meta charset="utf-8">
+	<title>Car Facts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+<style>
+.cbalink{display:none}
+h1{font-family: 'Baloo Bhaina', cursive;}
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1 align="center">World`s best car facts</h1>
+	</div>
+
+	<div ng-controller="listCtrl as list" ng-hide="list.quizActive">
+	<form class="form-inline well well-sm clearfix text-center">
+		<i>Total cars: {{list.data.length}}</i>
+		<input type="text" placeholder="search" class="form-control" ng-model="list.search">
+		<span class="glyphicon glyphicon-search"></span> 
+	</form>
+	<div class="row">
+		<div class="col-sm-6" ng-repeat="car in list.data | filter:list.search">
+			<div class="well well-sm">
+
+				<div class="row">
+					<div class="col-md-6">
+					<img ng-src="{{car.image_url}}" class="img-rounded img-responsive">
+				</div>
+				<div class="col-md-6">
+
+					<h4>{{car.type}}</h4>
+					<p><b>Price:</b> {{car.price}}</p>
+					<p><b>Max speed:</b> {{car.speed}}</p>
+					
+					<button ng-click="list.changeActive(car)" class="btn btn-primary pull-right" data-toggle="modal" data-target="#car-info">Read more</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="car-info">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2>{{list.activeCar.type}}</h2>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+						<div class="col-xs-8 col-xs-offset-2">
+						<img ng-src="{{list.activeCar.image_url}}" class="img-rounded img-responsive">
+						</div>
+					</div>
+					<div class="row top-buffer">
+						<div class="col-md-12">
+							<p style="padding:5px"><b>Description:</b>{{list.activeCar.description}}</p>
+							<button class="btn btn-danger pull-right" data-dismiss="modal">X</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<p align="center">Developed  by <a href="https://vk.com/edgrab">Eduard Grabchak</a></p>
+	</div>
+</div>
+</div>
+<!-- scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="cars.json"></script>
+ <script src="app.js"></script>
+ <script src="list.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Eduard Grabchak</title>
+  <meta charset="utf-8">
+  <meta name="keywords" content="Eduard Grabchak">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 
+ 
+  <style>
+
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  span{transition: 0.5s; font-size:30px;}
+  span:hover{color:black;}
+  p {font-size: 16px;}
+  
+  h1:hover{color:black;}
+ .margin {margin-bottom: 35px;}
+  .bg-1 {
+ 
+  background-size: cover;
+      background-color: #1abc9c; 
+      color: white;
+  
+  }
+  .bg-2 {
+background-size: 100%;
+      background-color: #474e5d; 
+      color: #ffffff;
+  }
+  .bg-3 {
+      background-color: #ffffff; 
+      color: #555555;
+  }
+  .bg-4 {
+      padding:5px;
+      background-color: #2f2f2f; 
+      color: #fff;
+  }
+
+  .container-fluid {
+      padding-top: 60px;
+      padding-bottom: 60px;
+  }
+ 
+  .circle{border-radius: 10px; box-shadow: 0 0 10px;
+  width:200px; height:auto;
+}
+.cbalink{display:none}
+  </style>
+</head>
+<body>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+ 
+<h1 class="margin hello">Hello!</h1>
+ 
+    
+<img src="me.jpg" class="img-responsive circle margin" style="display:inline" alt="me">
+ 
+<h2 class="margin">My name is Eduard Grabchak</h1>
+ <span class="glyphicon glyphicon-arrow-down"></span>
+  
+<br>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h1 class="margin">I am a Web Developer</h1>
+  <p> About 2 years ago I started to learn coding and stopped on web development.</p>
+<p>I really like my work. All my projects you can watch <a href="https://edgrlab.github.io">here</a>.</p>
+   
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">
+  <h3 class="margin">Where To Find Me?</h3><br>
+  <div class="row">
+    <div class="col-sm-12">
+      <p>If you have any questions, you can contact me via:</p>
+       <a href="https://vk.com/edgrab">VK</a> | 
+       <a href="https://mail.google.com/mail/u/#inbox?compose=157776806d790932">Gmail</a>
+    </div>
+   
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-4 text-center">
+  <p>© edgrlab.github.io 2015 - 2016</p>
+</footer>
+
+ <script>
+$("span").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".bg-2").offset().top},
+        'slow');
+ 
+});
+
+(function blink() { 
+  $('.hello').fadeOut(500).fadeIn(500, blink); 
+})();
+</script>
+ 
+</body>
+</html>
+<!-- zzz </body><!-->
