@@ -1,0 +1,39 @@
+h1{text-align: center; font-family: Arial }
+ 
+.button:hover {background-color: #3e8e41}
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#gameBoard{
+	width: 360px;
+	margin: auto;
+}
+
+.row{
+	clear: both;
+	overflow: hidden;
+}
+
+.square{
+	text-align: center;
+	padding-top: 30px;
+	font-size: 50px;
+	float: left;
+	width:118px;
+	height:78px;	
+	cursor: pointer; 
+}
+
+.bottom{
+	border-bottom: 2px solid grey;
+}
+
+.right{
+	border-right: 2px solid grey;
+}
+
+.x{background-color: red}
+.o{background-color: blue}
