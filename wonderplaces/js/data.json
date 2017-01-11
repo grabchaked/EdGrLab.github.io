@@ -1,0 +1,47 @@
+var placesData = [	
+	{	
+
+		name: "Great Pyramid of Giza",
+		location: "Egypt",
+		image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Kheops-Pyramid.jpg/1024px-Kheops-Pyramid.jpg",
+		description: "The Great Pyramid of Giza is located in the west coast of the Nile in Giza necropolis city (also known as the Pyramid of Khufu or the Pyramid of Cheops) is the oldest and largest of the three pyramids in the Giza pyramid complex bordering what is now El Giza, Egypt. It is the oldest of the Seven Wonders of the Ancient World, and the only one to remain largely intact."
+
+	},
+	{
+		name: "Hanging Gardens",
+		location: "Babylon",
+		image: "https://wiki.en.grepolis.com/images/0/02/Finished_Gardens.jpg",
+		description: "The Hanging Gardens of Babylon, one of the Seven Wonders of the Ancient World, is the only one whose location has not been definitively established. The Hanging Gardens were described as a remarkable feat of engineering: an ascending series of tiered gardens containing all manner of trees, shrubs, and vines. The gardens were said to have looked like a large green mountain constructed of mud bricks."
+	},
+	{
+		name: "The Statue of Zeus",
+		location: "on the Peloponnese",
+		image: "http://famouswonders.com/wp-content/uploads/2013/06/Statue-Of-Zeus-at-Olympia.jpg",
+		description: "The Statue of Zeus at Olympia was a giant seated figure, about 13 m (43 ft) tall, made by the Greek sculptor Phidias around 435 BC at the sanctuary of Olympia, Greece, and erected in the Temple of Zeus there. A sculpture of ivory plates and gold panels over a wooden framework, it represented the god Zeus sitting on an elaborate cedar wood throne ornamented with ebony, ivory, gold and precious stones. One of the Seven Wonders of the Ancient World, it was lost and destroyed during the 5th century AD with no copy ever being found, and details of its form are known only from ancient Greek descriptions and representations on coins."
+	},
+	{
+		name: "Temple of Artemis",
+		location: "Turkey",
+		image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Miniaturk_009.jpg/800px-Miniaturk_009.jpg",
+		description: "The Temple of Artemis or Artemision, also known less precisely as the Temple of Diana, was a Greek temple dedicated to the goddess Artemis. It was located in Ephesus (near the modern town of Selçuk in present-day Turkey). One of the Seven Wonders of the Ancient World, it was completely rebuilt three times before its final destruction in 401 AD. Only foundations and sculptural fragments of the latest of the temples at the site remain."
+	},
+	{
+		name: "Mausoleum at Halicarnassus",
+		location: "Bodrum, Turkey",
+		image: "https://upload.wikimedia.org/wikipedia/commons/8/8f/WashDCMasonic2007.jpg",
+		description: "The Mausoleum at Halicarnassus or Tomb of Mausolus was a tomb built between 353 and 350 BC at Halicarnassus (present Bodrum, Turkey) for Mausolus, a satrap in the Persian Empire, and his sister-wife Artemisia II of Caria. The structure was designed by the Greek architects Satyros and Pythius of Priene. The Mausoleum was approximately 45 m (148 ft) in height, and the four sides were adorned with sculptural reliefs, each created by one of four Greek sculptors."
+	},
+	{
+		name: "Colossus of Rhodes",
+		location: "Greece",
+		image: "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2008/11/16/rhodes460x276.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=9c0177bb051575b6dc2ac4461c7052fe",
+		description: "The Colossus of Rhodes was a statue of the Greek titan-god of the sun Helios, erected in the city of Rhodes, on the Greek island of the same name, by Chares of Lindos in 280 BC. One of the Seven Wonders of the Ancient World, it was constructed to celebrate Rhodes' victory over the ruler of Cyprus, Antigonus I Monophthalmus, whose son unsuccessfully besieged Rhodes in 305 BC. According to most contemporary descriptions, the Colossus stood approximately 70 cubits, or 33 metres (108 feet) high—the approximate height of the modern Statue of Liberty from feet to crown—making it the tallest statue of the ancient world. It was destroyed during the earthquake of 226 BC, and never rebuilt."
+	},
+	{
+		name: "Lighthouse of Alexandria",
+		location: "Pharos island",
+		image: "http://s2.thingpic.com/images/Zp/EERSxgP4jSBcCL3xyPZA8qYy.jpeg",
+		description: "The Lighthouse of Alexandria, sometimes called the Pharos of Alexandria, was a lighthouse built by the Ptolemaic Kingdom between 280 and 247 BC which was between 120 and 137 m (394 and 449 ft) tall. One of the Seven Wonders of the Ancient World, it was one of the tallest man-made structures in the world for many centuries. Badly damaged by three earthquakes between AD 956 and 1323, it then became an abandoned ruin. It was the third longest surviving ancient wonder. "
+	}
+
+];

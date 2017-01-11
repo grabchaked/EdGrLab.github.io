@@ -1,0 +1,27 @@
+@media screen and (max-width: 765px){
+	 		img{
+	 			margin: auto;
+	 		}
+	 	}
+
+	 	.image-answer{cursor: pointer; height: 300px; width: 100%;
+	 		overflow: hidden; margin-bottom:10px; }
+	 	.image-answer img{width: 100%; height: auto;}
+	 	
+	 	.jumbotron{padding: 20px}
+	 	.well-img{width: 158px; height: 158px; 
+	 		border-radius: 50%; border: 2px solid grey;
+	 		}
+	 	.answer{padding: 10px 20px; border-radius: 50px; border: 1px solid #bbb;}
+	 	.answer:hover{cursor: pointer; background-color: grey; color:white;}
+	 	img{transition: all .2s ease-in-out;}
+		img:hover{transform: scale(1.03); }
+		.jumbotron h2{color: #607D8B;}
+	 	p{font-size: 17px;}
+	 	footer{padding: 10px;}
+	 	a{text-decoration: none;}
+	 	.close{font-size: 30px}
+	 	.image-selected{
+	 		border: 2px solid #56afdc;
+	 	}
+	 	
