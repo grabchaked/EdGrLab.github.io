@@ -14,7 +14,7 @@
 			return dataObj;
 		}
 
-		var correctAnswers = [1,1,1,1,1,1,1,1];
+		var correctAnswers = [1,1,0,0,1,0,1,0];
 
 var quizQs = [
 	{
@@ -110,10 +110,10 @@ var quizQs = [
 		text: "It was one of the tallest man-made structures in the world for many centuries",
 		possibilities: [
 			{
-				answer: 'Lighthouse of Alexandria',
+				answer: 'Colossus of Rhodes',
 			},
 			{
-				answer: 'Colossus of Rhodes'
+				answer: 'Lighthouse of Alexandria'
 			}
 		],
 		selected: null,
