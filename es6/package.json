@@ -1,0 +1,11 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "simple ECMAScript 6 crib",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eduard Grabchak",
+  "license": "ISC"
+}
