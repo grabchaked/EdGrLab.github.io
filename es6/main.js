@@ -1,5 +1,5 @@
 /*
- *	Simple ECMAScript 6 crib
+ *	Simple and small ECMAScript 6 crib
  *	by Eduard Grabchak
  */
 
