@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>HTML5 Pacman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
     <style type="text/css">
       @font-face {
@@ -23,7 +25,7 @@
       }
       h1 { font-family: BDCartoonShoutRegular; text-align:center; }
       body { width:342px; margin:0px auto; font-family:sans-serif; }
-      a { text-decoration:none; }
+      a .btn { text-decoration:none; }
     </style>
 
 </head>
@@ -34,7 +36,12 @@
 
   <h1>Pacman Game</h1>
 
-   
+   <div id="whatnext" style="display: none; text-align: center;">
+     <a href='https://s161226-356.webasyst.cloud' class="btn btn-success btn-lg">Забрати приз!</a>
+     </button>
+     
+   </div>
+
 
   <div id="pacman"></div>
   <script src="pacman.js"></script>

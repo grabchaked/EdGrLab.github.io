@@ -814,6 +814,7 @@ var PACMAN = (function () {
     };
     
     function startLevel() {        
+
         user.resetPosition();
         for (var i = 0; i < ghosts.length; i += 1) { 
             ghosts[i].reset();
@@ -1012,7 +1013,11 @@ var PACMAN = (function () {
         }        
     };
     
+    
     function completedLevel() {
+
+        document.getElementById('pacman').style.display = 'none';
+        document.getElementById('whatnext').style.display = 'block';
         setState(WAITING);
         level += 1;
         map.reset();
