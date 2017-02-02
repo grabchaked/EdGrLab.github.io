@@ -1,0 +1,24 @@
+{
+  "name": "publisher",
+  "version": "1.0.0",
+  "description": "Place where you can anonymously publish and share info around the world.",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github.com/edgrlab.git"
+  },
+  "author": "Eduard Grabchak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/github.com/edgrlab/issues"
+  },
+  "homepage": "https://github.com/github.com/edgrlab#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "mongojs": "^2.4.0"
+  }
+}

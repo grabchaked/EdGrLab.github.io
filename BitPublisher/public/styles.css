@@ -1,0 +1,33 @@
+
+    .glyphicon-thumbs-up {
+        cursor: pointer;
+        font-size: 20px
+    }
+
+    
+    .glyphicon-thumbs-up:hover {
+        color: blue
+    }
+    
+    span {
+        -webkit-user-select: none;
+    }
+    
+    h1 {
+        font-family: 'Righteous', cursive;
+        text-shadow: 3px 3px gray;
+        font-size: 50px;
+        text-align: center;
+    }
+    
+    #posts {
+        padding: 5px;
+        margin: 10px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 260px;
+    }
+    
+    .glyphicon-remove{
+        cursor: pointer;
+    }
