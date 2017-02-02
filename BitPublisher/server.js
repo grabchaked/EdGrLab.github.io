@@ -2,9 +2,14 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongojs = require('mongojs');
-var db = mongojs('publisher', ['publisher']);
+var db = mongojs(process.env.MONGODB_URI || 'publisher', ['publisher']);
 var stats = require("./stats.json");
 var fs = require("fs");
+var sha256 = require("js-sha256").sha256;
+
+
+var secret = 'word';
+var adminPassword = 'c08413af894e39c804a0c8dcd293e37d3e4523923684587034cd22baee9695cf';
 
 app.use(express.static(__dirname+'/public'));
 app.use(bodyParser.json());
@@ -47,13 +52,37 @@ app.post('/publisher', function(req,res) {
 	});
 }); 
 
-app.delete('/publisher/:id', function(req,res) {
+app.post('/publisher/checkAdminPassword', function(req,res) {
+	console.log(req.body.pass);
+
+	if (sha256(req.body.pass) == adminPassword) {
+		res.json({result: true});
+	} else {
+		res.json({result: false});
+	}
+});
+
+/*app.delete('/publisher/:id', function(req,res) {
 	var id = req.params.id;
 	console.log(id);
 	db.publisher.remove({_id: mongojs.ObjectId(id)}, function(err,doc) {
 		res.json(doc);
 	});
+});*/
+
+
+app.get('/publisher/remove/', function(req,res){
+	var id = req.query.id;
+	var pass = req.query.pass;
+	if (sha256(pass) != adminPassword) {
+		res.json({result: "nope"});
+		return;
+	}
+	console.log(id);
+	db.publisher.remove({_id: mongojs.ObjectId(id)}, function(err,doc){
+		res.json(doc);
+	});
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log('Server running on port 3000');

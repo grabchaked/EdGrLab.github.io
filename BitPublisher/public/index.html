@@ -3,10 +3,10 @@
 <html ng-app="publisher">
 
 <head>
-    <title>Publisher</title>
+    <title>BitPublisher</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="publisher.herokuapp.com, publisher">
+    <meta name="keywords" content="bitpublisher.herokuapp.com, bitpublisher">
     <link rel="shortcut icon" href='title.png' type="png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
@@ -20,7 +20,7 @@
         <div class="col-md-8 col-md-offset-2">
          
             <div class="text-center">
-                <h1>Publisher</h1>
+                <h1>BitPublisher</h1>
                 <p>Place where you can <b>anonymously</b> publish and share info around the world.</p>
                 
                 
@@ -36,10 +36,18 @@
             <i class="pull-right">Visits counter: <b class="badge">{{stats.visits}}</b></i>
          
             <div id="posts">
-                <div class='well well-sm' ng-repeat="post in posts | orderBy:'-upvotes' | filter:search">
-                    <span class="glyphicon glyphicon-thumbs-up" ng-click="like(post)"></span> {{post.likes}} <kbd><span class="glyphicon glyphicon-time"></span> {{post.created | date:"h:mma MMM d, y"}}</kbd>
-                    <span class="glyphicon glyphicon-remove pull-right" ng-click='remove(post._id)'></span>
+                <div class='well well-sm' ng-repeat="post in posts | orderBy:'-likes' | filter:search">
+                    <span class="glyphicon glyphicon-thumbs-up" ng-click="like(post)">
+                        
+                    </span> {{post.likes}} <kbd> <span class="glyphicon glyphicon-time">
+                        
+                    </span> {{post.created | date:"h:mma MMM d, y"}}</kbd>
+
+                    <span class="glyphicon glyphicon-remove pull-right" ng-click='remove(post._id)' ng-show='isAdmin'>
+                        
+                    </span>
                     <span style="font-size:18px; margin-left:5px;">
+
           <a ng-show="post.link" href="{{post.link}}">
             {{post.title}}
           </a>
@@ -62,6 +70,7 @@
                         </button>
                     </div>
                 </div>
+                
             </form>
 
         </div>
@@ -70,7 +79,7 @@
     
 <br>
     <footer class="text-center">
-    Developed with ❤ by <a href="https://vk.com/edgrab">Eduard Grabchak</a> | &copy; <a href="https://edgrlab.github.io">edgrlab.github.io</a>
+    Developed with ❤ by <a href="https://vk.com/edgrab">Eduard Grabchak</a> | <a ng-click="getAdmin()">Admin</a> | &copy; <a href="https://edgrlab.github.io">edgrlab.github.io</a>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
