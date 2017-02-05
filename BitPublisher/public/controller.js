@@ -4,7 +4,7 @@
         .module("publisher")
         .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl($scope, $http) {
+    functionMainCtrl($scope, $http) {
         var refresh = function() {
             $http.get('/publisher').success(function(response) {
 
@@ -21,7 +21,7 @@
 
 
         $scope.addPost = function() {
-          if($scope.post==''){ return false;}
+          if($scope.post.title=='' || !$scope.post.title){ alert('Fill the title!'); return}
 
             console.log($scope.post);
             $http.post('/publisher', $scope.post).success(function(response) {
