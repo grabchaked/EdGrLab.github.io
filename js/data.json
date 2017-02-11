@@ -17,7 +17,7 @@ var projectsData = [
 		},
 		{
 			name: "ContactList",
-			url: "img/list.PNG",
+			url: "img/list.png",
 			link:"https://easycontactlist.herokuapp.com",
 			date:"Nov 5, 2016",
 			description: "Can store or remove information about users.",
