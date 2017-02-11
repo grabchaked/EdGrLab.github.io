@@ -13,7 +13,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body ng-controller='Ctrl as list'>
+
+<body ng-controller='Ctrl as list' onload="loader()" style="margin:0;">
+	<div id="loader"></div>
+	<div id="cnt" style="display: none;" class="animate-bottom"> 
+	
 
 	<div class="jumbotron text-center">
 		<h1>EdGrLab</h1>
@@ -53,16 +57,18 @@
 		</div>
 		
 	</div>
+ 
 
 	<span id='up' class="glyphicon glyphicon-circle-arrow-up"></span>
 
 		<div class="github">
-			<h4>For other projects check my <a href="https://github.com/EdGrLab">GitHub</a> | <span id="vk_like"></span></h4> 
+			<h4>For other projects check my <a href="https://github.com/EdGrLab">GitHub</a> <span id="vk_like"></span></h4> 
 		</div>
 <hr>
 	<footer class="text-center">
-    Developed with ❤ by <a href="https://vk.com/edgrab">Eduard Grabchak</a> | &copy; EdGrLab 2015-2017
+    Made with ❤ by <a href="https://vk.com/edgrab">Eduard Grabchak</a> | &copy; EdGrLab 2015-2017
     </footer>
+</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 	<script src="//vk.com/js/api/openapi.js?121"></script>
@@ -71,7 +77,7 @@
 	<script src='js/list.js'></script>
 	<script src='js/data.json'></script>
 	<script src='js/up.js'></script>
-
+	 
         <script>
 		    VK.init({
 		        apiId: 5244376,
@@ -84,5 +90,16 @@
             type: "button"
         });
         </script>
+
+		<script> 
+		function loader() {
+		    slider = setTimeout(showPage, 2500);
+		}
+
+		function showPage() {
+		  document.getElementById("loader").style.display = "none";
+		  document.getElementById("cnt").style.display = "block";
+		}
+		</script>
 </body>
 </html>

@@ -26,7 +26,7 @@ var projectsData = [
 		{
 			name: "Chat",
 			url: "img/chat.PNG",
-			link:"",
+			link:"https://chatlab.herokuapp.com",
 			date:"Jul 28, 2016",
 			description: "Real-time chat.",
 			technology: "Socket.IO App"
