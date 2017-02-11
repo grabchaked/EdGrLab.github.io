@@ -1,0 +1,56 @@
+h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 60px;
+    text-align: center;
+    text-shadow: 3px 3px gray;
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.jumbotron {
+    padding: 10px;
+}
+
+.glyphicon-circle-arrow-up {
+    font-size: 30px;
+    cursor: pointer;
+    float: right;
+    margin: 20px;
+}
+
+.well {
+    transition: 0.5s;
+}
+
+.well:hover {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+.well-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid grey;
+}
+.github {
+    padding: 10px;
+    text-align: center;
+}
+
+.well a {
+    color: black;
+    text-decoration: none;
+}
+
+.well a:hover {
+    color: white;
+}
+
+footer {
+    padding-bottom: 10px;
+}

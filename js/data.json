@@ -1,0 +1,83 @@
+var projectsData = [
+		{
+			name: "BitPublisher",
+			url: "img/bitpublisher.PNG",
+			link:"https://bitpublisher.herokuapp.com/",
+			date:"Feb 2, 2017",
+			description: "Place where you can anonymously share info around the world.",
+			technology: "MEAN Stack App"
+		},
+		{
+			name: "Wonder Places Quiz",
+			url: "img/quiz.PNG",
+			link:"https://edgrlab.github.io/wonderplaces",
+			date:"Jan 12, 2017",
+			description: "Discover wonderful and interesting places.",
+			technology: "jQuery, AngularJS App"
+		},
+		{
+			name: "ContactList",
+			url: "img/list.PNG",
+			link:"https://easycontactlist.herokuapp.com",
+			date:"Nov 5, 2016",
+			description: "Can store or remove information about users.",
+			technology:"MEAN Stack App"
+		},
+		{
+			name: "Chat",
+			url: "img/chat.PNG",
+			link:"",
+			date:"Jul 28, 2016",
+			description: "Real-time chat.",
+			technology: "Socket.IO App"
+		},
+		
+		{
+			name: "Tic Tac Toe",
+			url: "img/tictac.PNG",
+			link:"https://edgrlab.github.io/tictactoe",
+			date:"Jun 6, 2016",
+			description: "Well known game came back to us.",
+			technology: "jQuery App"
+		},
+		{
+			name: "Company Template",
+			url: "img/temp.PNG",
+			link:"https://edgrlab.github.io/template",
+			date:"Apr 3, 2016",
+			description: "Just one of my layouts example.",
+			technology: "jQuery App"
+		},
+		{
+			name: "English Skiller",
+			url: "img/engskiller.PNG",
+			link:"https://edgrlab.github.io/engskiller/",
+			date:"Feb 15, 2016",
+			description: "Place where you improve your typing skills and also learn new words.",
+			technology: "jQuery App"
+		},
+		{
+			name: "Encryptor",
+			url: "img/encryptor.PNG",
+			link:"https://edgrlab.github.io/encryptor/",
+			date:"Feb 2, 2016",
+			description: "Program can encrypt and decrypt your message.",
+			technology: "JavaScript App"
+		},
+		{
+			name: "Tanks",
+			url: "img/tanks.PNG",
+			link:"https://edgrlab.github.io/tanks",
+			date:"Jan 4, 2016",
+			description: "Game for 2 players, works only on computers.",
+			technology: "Canvas Game"
+		},
+		{
+			name: "Clicker",
+			url: "img/clicker.PNG",
+			link:"https://edgrlab.github.io/clicker/",
+			date:"Dec 3, 2015",
+			description: "Click to stay alive (my 1st canvas game).",
+			technology: "Canvas Game"
+		}
+	]	

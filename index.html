@@ -1,242 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html ng-app='EdGrLab'>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-       <meta name="description" content=" EdGrLab - js games & programs">
-    <meta name="keywords" content="edgrlab games, edgrlab.github.io">
+	<title>EdGrLab</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content=" EdGrLab - Portfolio with JavaScript projects">
+    <meta name="keywords" content="edgrlab, edgrlab.github.io">
     <meta name="author" content="Eduard Grabchak">
-    <link rel="shortcut icon" href='title.PNG' type="PNG">
-    <title>EdGrLab</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/2-col-portfolio.css" rel="stylesheet">
-
-   <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-   <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
- <script type="text/javascript">
-    VK.init({
-        apiId: 5244376,
-        onlyWidgets: true
-    });
-    </script>
-
-   <style type="text/css">
-   h3{text-align: center;}
-   img{border: 1px dashed black;}
-   img:hover{opacity: 0.5; border: 1px solid black}
-       h1{font-family: 'Righteous', cursive; font-size: 60px; text-align: center;}
-       #vk_like {
-        margin: auto;
-    }
-    
-   </style>
+    <link rel="shortcut icon" href='img/title.PNG' type="PNG">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
+<body ng-controller='Ctrl as list'>
 
-<body>
+	<div class="jumbotron text-center">
+		<h1>EdGrLab</h1>
+			<p>Portfolio with JavaScript projects</p>
+			<form class="form-inline clearfix text-center">
+		
+		<span class="glyphicon glyphicon-search"></span>
+		 <input type="text" placeholder="Search" class="form-control" ng-model="list.search">
+		
+	</form>
+	</div>
 
-  
+	<div class="container">
 
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Header -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">EdGrLab
-                  
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-6 portfolio-item">
-            <h3>
-                    <a href="engskiller/">English Skiller</a>
-                </h3>
-                <p>Program where you improve your typing skills and also learn new words.</p>
-                 
-                    <img class="img-responsive" src="engskiller/engskiller.PNG" width="700" height="650">
-                 
-                 
-            </div>
-            <div class="col-md-6 portfolio-item">
-            <h3>
-                    <a href="encryptor/">Encryptor</a>
-                </h3>
-                <p>Program can encrypt and decrypt your message.</p>
-                
-                    <img class="img-responsive" src="encryptor/encryptor.PNG" width="700" height="650">
-                
-                 
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-6 portfolio-item">
-             <h3>
-                    <a href="clicker/">Clicker</a>
-                </h3>
-                <p>Just click to stay alive as long as you can (my first javascript game).</p>
-                
-                    <img class="img-responsive" src="clicker/clicker.PNG" width="700" height="650">
-                
-                
-            </div>
-            <div class="col-md-6 portfolio-item">
-             <h3>
-                    <a href="flappy/">Flappy Cube</a>
-                </h3>
-                <p>Game looks like flappy bird, but you control by using mouse.</p>
-                 
-                    <img class="img-responsive" src="flappy/flappy.png" width="700" height="650">
-                 
-                
-            </div>
-        </div>
-        <!-- /.row -->
-
-        
-        <div class="row">
-            <div class="col-md-6 portfolio-item">
-            <h3>
-                    <a href="tanks/">Tanks</a>
-                </h3>
-                <p>Game for 2 players, works only on computers.</p>
-                 
-                    <img class="img-responsive" src="tanks/tanks.PNG" width="700" height="650">
-                 
-                 
-            </div>
-            <div class="col-md-6 portfolio-item">
-            <h3>
-                    <a href="https://chatlab.herokuapp.com/">Chat</a>
-                </h3>
-                <p>Real-time chat.</p>
-                 
-                    <img class="img-responsive" src="chat.png" width="700" height="650">
-                
-                 
-            </div>
-
-            <div class="col-md-6 portfolio-item"> 
-<h3> 
-<a href="carfacts/">Car Facts</a> 
-</h3> 
-<p>Facts about best cars in the world.</p> 
-
-<img class="img-responsive" src="carfacts/cars.jpg" width="700" height="650"> 
-
-
-</div>
-
-   <div class="col-md-6 portfolio-item"> 
-<h3> 
-<a href="template/">Company template</a> 
-</h3> 
-<p>Just a template for a company.</p> 
-
-<img class="img-responsive" src="template/temp.png" width="700" height="650"> 
-
-
-</div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-6 portfolio-item">
-            <h3>
-                    <a href="tictactoe/">Tic Tac Toe</a>
-                </h3>
-                <p>Well known game came back to us.</p>
-                 
-                    <img class="img-responsive" src="tictactoe/tictac.png" width="700" height="650">
-            </div>
-
-
-            <div class="col-md-6 portfolio-item">
-            <h3>
-                    <a href="MemoryGame/">Memory Game</a>
-                </h3>
-                <p>Game where you need to open all hidden cards. </p>
-                 
-                    <img class="img-responsive" src="MemoryGame/mg.png" width="700" height="650">
-                 
-                 
-            </div>
-        </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-md-6 portfolio-item">
-            <h3>
-                    <a href="wonderplaces/">Wonder places Quiz</a>
-                </h3>
-                <p>Discover wonderful and interesting places </p>
-                 
-                    <img class="img-responsive" src="wonderplaces/preview.png" width="700" height="650">
-            </div>
-
-
-    
-        </div>
+		<i class="pull-right">Total projects: <b class="badge">{{list.data.length}}</b></i>
+		
 <br>
-<div align='center'>
-    <h3>MEAN APPS</h3>
-<a href='http://easycontactlist.herokuapp.com' class='text-center'>Contact List</a> | <a href="http://bitpublisher.herokuapp.com">BitPublisher</a>
-</div>
-        <hr>
- 
-       <a id="up" style="cursor:pointer">Go up</a>
+		<div class="row">
+			<div class="col-sm-6" ng-repeat="project in list.data | filter:list.search">
+			<h4><span class="glyphicon glyphicon-calendar"></span> {{project.date}}</h4>
+				<div class="well well-sm">
+				<a href='{{project.link}}' target="_blank"> 
+					<div class="row">
+						<div class="col-md-6">
+							<h3>{{project.name}}</h3>
+							<p>{{project.description}}</p>
+							<span class="label label-primary">{{project.technology}}</span>
+							 
+						</div>
+						<div class="col-md-6">
+							<img ng-src="{{project.url}}" class="well-img img-rounded img-responsive pull-right">
+						</div>
+					</div>
+				</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<span id='up' class="glyphicon glyphicon-circle-arrow-up"></span>
+
+		<div class="github">
+			<h4>For other projects check my <a href="https://github.com/EdGrLab">GitHub</a> | <div id="vk_like"></div></h4> 
+		</div>
+<hr>
+	<footer class="text-center">
+    Developed with ❤ by <a href="https://vk.com/edgrab">Eduard Grabchak</a> | &copy; EdGrLab 2015-2017
+    </footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+	<script src='js/app.js'></script>
+	<script src='js/list.js'></script>
+	<script src='js/data.json'></script>
+	<script src='js/up.js'></script>
+
         <script>
-        function up() {
-            window.scrollBy(0, -100);
-            if (window.pageYOffset > 0) {
-                requestAnimationFrame(up);
-            }
-        }
-        document.getElementById('up').addEventListener('click', function(e) {
-            e.preventDefault();
-            up();
-        }, false);
-        </script>
+		    VK.init({
+		        apiId: 5244376,
+		        onlyWidgets: true
+		    });
+   		</script>
 
-       
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-
-      <div id="vk_like"></div>
         <script type="text/javascript">
         VK.Widgets.Like("vk_like", {
             type: "button"
         });
         </script>
-
-                <p align="center"><a href='me/'>About author</a></p>
-                <br>
-                    <p align="center">Copyright &copy; edgrlab.github.io 2015-2017</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
-
-    <!-- /.container -->
-
-    
-     
-
 </body>
-
 </html>
