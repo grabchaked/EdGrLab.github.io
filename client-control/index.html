@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="styles.css">
+      <title>Клієнт-Контроль</title>
+   </head>
+   <body>
+      <div id="app" class="container text-center">
+         <div class="jumbotron">
+            <h2>Клієнт-Контроль</h2>
+            <p>Програма розроблена для ведення обліку клієнтів. </p>
+					 <div class="form-group form-inline">
+  
+		<input type="text" class="form-control" v-model='search' placeholder="Пошук"></div>
+            <button class="btn btn-success" v-on:click="seen = !seen, hide = !hide" v-if="hide">Додати клієнта</button> 
+         </div>
+         <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+               <thead>
+                  <tr>
+                     <th>Тип</th>
+                     <th>День</th>
+                     <th>Час</th>
+                     <th>Ім'я</th>
+                     <th>Номер</th>
+                     <th>Дії</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr v-if="seen">
+                     <td>
+                        <select v-model='chooseType'>
+                           <option>Сауна</option>
+                           <option>Баня</option>
+                        </select>
+                     </td>
+                     <td><input v-model='day' type="date"></td>
+                     <td><input v-model='time' id="time" type="time"></td>
+                     <td><input v-model='name' type="text" placeholder="Ім`я" size="10"></td>
+                     <td><input v-model='number' type="number"></td>
+                     <td>
+                        <button type="button" class="btn btn-success" v-on:click="addClient"><i class="glyphicon glyphicon-plus"></i></button> 
+                     </td>
+                  </tr>
+                  <tr v-for="item in info, filtered">
+                     <td>{{item.chooseType}}</td>
+                     <td>{{item.day}}</td>
+                     <td>{{item.time}}</td>
+                     <td>{{item.name}}</td>
+                     <td>{{item.number}}</td>
+                     <td>
+                        <!-- <button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-refresh" v-on:click='change(item)'></i></button> | -->
+                        <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-remove" v-on:click="remove(item)"></i></button>
+                     </td>
+                     <!--  <input type="text" class="edit" v-model='item.chooseType' @blur="done(item)" @keyup.enter="done(item)">
+                        <input type="text" class="edit" v-model='item.day' @blur="done(item)" @keyup.enter="done(item)">
+                        <input type="text" class="edit" v-model='item.time' @blur="done(item)" @keyup.enter="done(item)">
+                        <input type="text" class="edit" v-model='item.name' @blur="done(item)" @keyup.enter="done(item)">
+                        <input type="text" class="edit" v-model='item.number' @blur="done(item)" @keyup.enter="done(item)">  -->
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <hr>
+      <footer>&copy; Client-Control 2018 | Made with ❤ by Eduard Grabchak</footer>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script src="main.js"></script>
+   </body>
+</html>
