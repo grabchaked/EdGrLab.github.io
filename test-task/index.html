@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DAIRY APP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body ng-app='test-task'>
+    <div class="container-fluid" ng-controller='mainCtrl'>
+        <div class="row">
+            <div class="col-sm-2 sidenav">
+                <h1>{{appName}}</h1>
+                <p>{{title}}</p>
+            </div>
+            <div class="col-sm-6">
+                <div class="items">
+                    <h2>Items</h2>
+                    <form class="form-inline">
+                        <input type="text" class="form-control" size="35" ng-model='item'>
+                        <button class="btn btn-add" ng-click='addItem()'>Add new</button>
+                    </form>
+                    <br>
+                    <div class="active-item">
+                        <p ng-repeat='data in items track by $index'>{{data}} <span class="badge badge-pill badge-primary">132</span>
+                            <button class="btn btn-outline-danger float-right" ng-click="removeItem($index)">Delete</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="comments">
+                    <h2>Comments #2</h2>
+                    <br>
+                    <div class="row" ng-repeat='comment in comments'>
+                        <div class="col-sm-2">
+                            <div class="rect"></div>
+                        </div>
+                        <div class="col-sm-10">
+                            <p>{{comment}}</p>
+                            <hr>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="msg-area">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="rect"></div>
+                            </div>
+                            <div class="col-sm-10">
+                                <textarea class='form-control' rows=5 placeholder="Type here" ng-keypress="sendMsg($event)" ng-model='msg'></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+            <script src="js/app.js"></script>
+            <script src="js/mainCtrl.js"></script>
+</body>
+
+</html>
