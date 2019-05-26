@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+ img{ 
+  width: 100%;
+  height: 350px;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid grey;
+  padding: 5px;
+
+}
+
+hr {
+  border: 1px dashed grey;
+  width: 50%;
+  float: none;
+  margin: 20px;
+
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+
+  hr {display: none;}
+}
+
+
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+    hr {display: block; margin:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="#">про себе</a>
+  <a href="#like">захоплення</a>
+  <a href="#contact" class="right">Контакти</a>
+</div>
+
+<div class="row">
+  <div class="side">
+    <h2>Про мене</h2>
+    <h5>Моє фото:</h5>
+      <img src="https://snag.gy/ECL7oD.jpg">
+    <p>Звати мене Корнелія і на цьому сайті я б хотіла розповісти трохи про своє життя. На даний момент я навчаюсь і паралельно активно займаюсь спортивною підготовкою. Багато вільного часу я приділяю саме спорту і саморозвитку.
+</p>
+    <br>
+  </div>
+  <div class="main">
+    <h2 align="center" id="like">Мої захоплення</h2>
+    
+  
+    <p style="padding: 50px 10px 0 10px;">
+       <img src="https://snag.gy/EbuDmn.jpg" style="float:right; width: 200px; margin-left:10px; height: auto; padding: 10px;">
+       Звичайно, жодна хвилина мого життя не проходить без друзів поряд. Я обожнюю своє близьке коло спілкування і час проведений з ними це найкращий відпочинок.
+Говорячи про захоплення,це звичайно спорт,книги і подорожі в екстремальних умовах
+В майбутньому бачу себе успішною людиною,яка знайшла себе в улюбленій справі,самореалізувалася і просто стала щасливою.</p>
+    
+   <hr>
+    <p>Серед різновидів книг надаю перевагу детективам і витонченим романам про кохання. Серед улюблених авторів можу виділити Сидни Шелдона і Полу Гоукінз. 
+Відносно спортивних змагань, націлена на Всеукраїнські змагання з фітнес бікіні, а згодом можливо вийду на серйозніший рівень, до якого належить такий вид змагань як Arnold Classic.</p>
+  </div>
+</div>
+
+<div class="footer" id="contact">
+  <h2>Контакти </h2>
+  <h4> За питаннями або пропозиціями звертатись сюди: <i class="fas fa-phone"></i> 0999520602 або через <i class="fab fa-instagram"></i> Instagram: @kornelia_1051</h4>
+</div>
+
+</body>
+</html>
